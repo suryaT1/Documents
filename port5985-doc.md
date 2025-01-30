@@ -17,4 +17,9 @@ This file contains the steps to resolve the Port 5985 issue on the server.
 
 SOURCE MACHINE --->  PORT 5985  ------> DEVICE END POINT (UNI DIRECTINAL)
 
+# Additonal settings 
+
+Kindly verify whether psrp /winrm is enabled or not on endpoint 
+
+
 # Note : Best practise is to see the rules for the working server 
