@@ -1,0 +1,37 @@
+################################################################
+
+This file contains the steps to resolve the keys issue on server
+
+
+Firstlt , please check the permission of the user which you're trying to connect
+it should always +x mod to the USER ID
+
+Steps to solve the issue
+#########################
+
+IF KEYS ARE ALREADY GENERATED :
+
+1.  switch to /home/<userid>/.ssh path 
+2.  check the permission to the folder and files ( same folder)
+3.  there must be two files 
+     id_rsa   # file contains the private key information
+     authorized_keys  # file contians the public key information
+4.  Kindly check the owner permission of these two files , ansible User must have access to these files
+5.  copy the id_rsa file again on tower credential 
+
+IF KEYS ARE NOT GENERATED YET :
+
+1. switch to /home/<userid>/.ssh path 
+2. generate the keys following below steps
+   a. ssh-keygen ( without of passphrase )
+   b. it will gives two files id_rsa and id_rsa.pub
+   c. rename the id_rsa.pub into authorized_keys
+3. copy the id_rsa key file into ansible and save it
+4. make sure below permission are set to the files with respective user permissions.
+
+
+
+Permission:
+chmod 700 /home/<userid>
+chmod 700 /home/<userid>/.ssh
+chmod 600 /home/<userid>/.ssh/authorized_keys
